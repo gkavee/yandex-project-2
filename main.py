@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, redirect, session, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO, send
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'iYi8H878Fmwb_VCgMzFoyg'
@@ -57,5 +58,6 @@ def logout():
     return redirect(url_for('index'))
 
 
-if __name__ == "__main__":
-    socketio.run(app)
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
