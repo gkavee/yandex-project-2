@@ -3,7 +3,7 @@ $(document).ready(() => {
         e.preventDefault();
     });
 
-    const socket = io.connect('http://127.0.0.1:5000');
+    const socket = io.connect('http://0.0.0.0:5000');
     const username = $('#username').text();
     var now = new Date();
 
